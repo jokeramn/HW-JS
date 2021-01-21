@@ -41,7 +41,10 @@ sumWithDefaults(10);
  Пример:
    returnFnResult(() => 'привет') вернет 'привет'
  */
-function returnFnResult(fn) {}
+function returnFnResult(fn) {
+  return fn();
+}
+returnFnResult(() => 'привет');
 
 /*
  Задание 4:
@@ -53,7 +56,16 @@ function returnFnResult(fn) {}
    console.log(f()); // выведет 12
    console.log(f()); // выведет 13
  */
-function returnCounter(number) {}
+function returnCounter(number) {
+  function F() {
+    return ++number;
+  }
+  return F;
+}
+const f = returnCounter(10);
+console.log(f()); // выведет 11
+console.log(f()); // выведет 12
+console.log(f()); // выведет 13
 
 /*
  Задание 5 *:
