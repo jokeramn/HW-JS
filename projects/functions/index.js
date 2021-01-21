@@ -56,13 +56,13 @@ returnFnResult(() => 'привет');
    console.log(f()); // выведет 12
    console.log(f()); // выведет 13
  */
-function returnCounter(number) {
+function returnCounter(number = 0) {
   function F() {
     return ++number;
   }
   return F;
 }
-const f = returnCounter(10);
+const f = returnCounter();
 console.log(f()); // выведет 11
 console.log(f()); // выведет 12
 console.log(f()); // выведет 13
