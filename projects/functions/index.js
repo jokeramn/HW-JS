@@ -27,8 +27,7 @@ returnFirstArgument('привет');
    sumWithDefaults(10) вернет 110
  */
 function sumWithDefaults(a, b = 100) {
-  const sum = a + b;
-  return sum;
+  return a + b;
 }
 
 sumWithDefaults(10, 20);
