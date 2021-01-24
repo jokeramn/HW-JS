@@ -89,13 +89,8 @@ returnArgumentsArray(1, 2, 3);
    var newSum = bindFunction(sum, 2, 4);
    console.log(newSum()) выведет 6
  */
-function bindFunction(fn) {
-  let args = '';
-
-  for (let i = 1; i < arguments.length; i++) {
-    args += arguments[i];
-  }
-  return fn.bind(null, args);
+function bindFunction(fn, ...args) {
+  return fn.bind(null, ...args);
 }
 
 export {
