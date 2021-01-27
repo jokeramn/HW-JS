@@ -1,5 +1,3 @@
-/* ДЗ 2 - работа с массивами и объектами */
-
 /*
  Задание 1:
  Напишите аналог встроенного метода forEach для работы с массивами
@@ -37,7 +35,21 @@ function map(array, fn) {
  Пример:
    reduce([1, 2, 3], (all, current) => all + current) // 6
  */
-function reduce(array, fn, initial) {}
+function reduce(array, fn, initial) {
+  let previousValue = initial || array[0],
+    index = initial ? 0 : 1;
+
+  for (; index < array.length; index++) {
+    // previousValue – последний результат вызова функции, он же «промежуточный результат».
+    // currentItem – текущий элемент массива, элементы перебираются по очереди слева - направо.
+    // index – номер текущего элемента.
+    // array – обрабатываемый массив.
+
+    previousValue = fn(previousValue, array[index], index, array);
+  }
+
+  return previousValue;
+}
 
 /*
  Задание 4:
@@ -45,7 +57,17 @@ function reduce(array, fn, initial) {}
  Пример:
    upperProps({ name: 'Сергей', lastName: 'Петров' }) вернет ['NAME', 'LASTNAME']
  */
-function upperProps(obj) {}
+function upperProps(obj) {
+  return Object.keys(obj).map(function (reg) {
+    return reg.toUpperCase();
+  });
+}
+const result = upperProps({
+  name: 'Сергей',
+  lastName: 'Петров',
+});
+
+console.log(result);
 
 /*
  Задание 5 *:
@@ -56,6 +78,13 @@ function upperProps(obj) {}
    obj.foo = 2;
    console.log(obj.foo); // 4
  */
-function createProxy(obj) {}
+function createProxy(obj) {
+  return new Proxy(obj, {
+    set(target, prop, value) {
+      target[prop] = value * value;
+      return true;
+    },
+  });
+}
 
 export { forEach, map, reduce, upperProps, createProxy };
