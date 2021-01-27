@@ -58,17 +58,10 @@ function reduce(array, fn, initial) {
    upperProps({ name: 'Сергей', lastName: 'Петров' }) вернет ['NAME', 'LASTNAME']
  */
 function upperProps(obj) {
-  return Object.keys(obj).map(function (reg) {
+  return Object.keys(obj).map((reg) => {
     return reg.toUpperCase();
   });
 }
-const result = upperProps({
-  name: 'Сергей',
-  lastName: 'Петров',
-});
-
-console.log(result);
-
 /*
  Задание 5 *:
  Функция принимает объект и должна вернуть Proxy для этого объекта
