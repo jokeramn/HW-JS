@@ -27,8 +27,7 @@ function isAllTrue(array, fn) {
 
   return true;
 }
-console.log(isAllTrue([1, 2, 14, 4, 5], (n) => n < 10));
-console.log(isAllTrue([1, 2, 3, 4, 5], (n) => n < 10));
+
 /*
  Задание 2:
  2.1: Функция принимает массив и фильтрующую функцию и должна вернуть true или false
@@ -56,8 +55,6 @@ function isSomeTrue(array, fn) {
 
   return false;
 }
-console.log(isSomeTrue([1, 2, 30, 4, 5], (n) => n > 20)); // вернет true
-console.log(isSomeTrue([1, 2, 3, 4, 5], (n) => n > 20)); // вернет false
 
 /*
  Задание 3:
