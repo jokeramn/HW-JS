@@ -7,7 +7,12 @@
  Пример:
    createDivWithText('loftschool') // создаст элемент div, поместит в него 'loftschool' и вернет созданный элемент
  */
-function createDivWithText(text) {}
+function createDivWithText(text) {
+  const element = document.createElement('div');
+  element.textContent = text;
+  return element;
+}
+createDivWithText('loftschool');
 
 /*
  Задание 2:
@@ -16,7 +21,7 @@ function createDivWithText(text) {}
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
 function prepend(what, where) {}
-
+prepend(document.querySelector('#one'), document.querySelector('#two'));
 /*
  Задание 3:
  3.1: Функция должна перебрать все дочерние элементы узла, переданного в параметре where
