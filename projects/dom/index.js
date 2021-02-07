@@ -131,6 +131,7 @@ function collectDOMStat(root) {
     classes: {},
     texts: 0,
   };
+
   function scan(root) {
     for (const child of root.childNodes) {
       if (child.nodeType === 3) {
@@ -141,6 +142,7 @@ function collectDOMStat(root) {
         } else {
           stat.tags[child.tagName] = 1;
         }
+
         for (const className of child.classList) {
           if (className in stat.classes) {
             stat.classes[className]++;
@@ -152,7 +154,9 @@ function collectDOMStat(root) {
       }
     }
   }
+
   scan(root);
+
   return stat;
 }
 /*
