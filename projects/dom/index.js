@@ -141,14 +141,14 @@ function collectDOMStat(root) {
         if (child.tagName in stat.tags) {
           stat.tags[child.tagName]++;
         } else {
-          stat.tags[child.tagName] = Element.ELEMENT_NODE;
+          stat.tags[child.tagName] = 1;
         }
 
         for (const className of child.classList) {
           if (className in stat.classes) {
             stat.classes[className]++;
           } else {
-            stat.classes[className] = Element.ELEMENT_NODE;
+            stat.classes[className] = 1;
           }
         }
         scan(child);
