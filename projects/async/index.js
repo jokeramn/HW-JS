@@ -82,18 +82,15 @@ filterInput.addEventListener('input', function () {
   updateFilter(this.value);
 });
 
-loadingFailedBlock.classList.add('hidden');
-filterBlock.classList.add('hidden');
-
 async function tryToLoad() {
   try {
     towns = await loadTowns();
-    loadingBlock.classList.add('hidden');
-    loadingFailedBlock.classList.add('hidden');
-    filterBlock.classList.remove('hidden');
+    loadingBlock.style.display = 'none';
+    loadingFailedBlock.style.display = 'none';
+    filterBlock.style.display = 'block';
   } catch (e) {
-    loadingBlock.classList.add('hidden');
-    loadingFailedBlock.classList.remove('hidden');
+    loadingBlock.style.display = 'none';
+    loadingFailedBlock.style.display = 'block';
   }
 }
 
