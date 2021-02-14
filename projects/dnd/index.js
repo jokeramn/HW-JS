@@ -18,9 +18,41 @@ import './dnd.html';
 
 const homeworkContainer = document.querySelector('#app');
 
-document.addEventListener('mousemove', (e) => {});
+function random(from, to) {
+  return parseInt(from + Math.random() * to - from);
+}
 
-export function createDiv() {}
+let startPath;
+let startX = 0;
+let startY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  if (startPath) {
+    startPath.style.top = e.clientY - startY + 'px';
+    startPath.style.left = e.clientX - startX + 'px';
+  }
+});
+
+export function createDiv() {
+  const newDiv = document.createElement('div');
+  const minSize = 10;
+  const maxSize = 300;
+
+  newDiv.style.background = '#' + random(0, 0xffffff).toString(16);
+  newDiv.style.top = random(0, window.innerHeight) + 'px';
+  newDiv.style.left = random(0, window.innerWidth) + 'px';
+  newDiv.style.width = random(minSize, maxSize) + 'px';
+  newDiv.style.height = random(minSize, maxSize) + 'px';
+
+  newDiv.addEventListener('mousedown', (e) => {
+    startPath = newDiv;
+    startX = e.offsetX;
+    startY = e.offsetY;
+  });
+  newDiv.addEventListener('mouseup', () => (startPath = false));
+
+  return newDiv;
+}
 
 const addDivButton = homeworkContainer.querySelector('#addDiv');
 
