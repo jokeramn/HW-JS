@@ -38,6 +38,7 @@ export function createDiv() {
   const minSize = 10;
   const maxSize = 300;
 
+  newDiv.className = 'draggable-div';
   newDiv.style.background = '#' + random(0, 0xffffff).toString(16);
   newDiv.style.top = random(0, window.innerHeight) + 'px';
   newDiv.style.left = random(0, window.innerWidth) + 'px';
